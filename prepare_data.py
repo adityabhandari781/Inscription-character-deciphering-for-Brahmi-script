@@ -6,9 +6,9 @@ from sklearn.model_selection import train_test_split
 import shutil
 
 # --- Configuration ---
-RAW_DATA_DIR = "raw_data"  # Folder containing your .jpg/.png and .json files
-OUTPUT_DIR = "datasets/brahmi_ocr"
-IMG_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp"}
+RAW_DATA_DIR = "/mnt/windows/Users/adity/Downloads/output_clean"  # Folder containing your .jpg/.png and .json files
+OUTPUT_DIR = "/mnt/windows/Users/adity/Downloads/output_yolo"
+IMG_EXTENSIONS = {".png"}
 
 def convert_bbox_to_yolo(bbox, img_width, img_height):
     """
