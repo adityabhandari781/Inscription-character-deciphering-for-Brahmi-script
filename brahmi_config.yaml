@@ -1,8 +1,0 @@
-
-path: /mnt/windows/Users/adity/Desktop/code/GitHub/Inscription character deciphering for Brahmi script/datasets/brahmi_ocr
-train: images/train
-val: images/val
-
-nc: 0
-names: []
-    
