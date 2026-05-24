@@ -6,21 +6,27 @@ from torchvision import transforms
 from torchvision.models import mobilenet_v2
 from PIL import Image, ImageDraw
 import regex as re
+import numpy as np
 
-image_path = "data/imgs/engr/1.jpg"
+image_path = "data/engr/0.jpg"
 coords_xy = [310, 56, 336, 98] # missing char: 𑀦𑁆
 
 
 
-# CODE TO PUT A WHITE BOX ON A CHARACTER (FOR TESTING TRANSFORMER)
+# CODE TO PUT A BOX ON A CHARACTER (FOR TESTING TRANSFORMER)
+def average_color(image_path):
+    img = Image.open(image_path).convert("RGB")
+    arr = np.array(img)
+    avg = arr.mean(axis=(0, 1))  # mean over height & width
+    return tuple(avg.astype(int))
+
 def mask_character(image_path, coords_xy):
     image = Image.open(image_path).convert("RGB")
     draw = ImageDraw.Draw(image)
-    draw.rectangle(coords_xy, fill="green")
+    draw.rectangle(coords_xy, fill=average_color(image_path))
     masked_path = "outputs/masked.jpg"
     image.save(masked_path)
     return masked_path
-
 
 
 # DETECTION
